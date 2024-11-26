@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ milestone.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .milestone-detail {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .milestone-detail img {
+            width: 100%; /* Ensures image fills the container */
+            height: 400px; /* Fixed height to crop images consistently */
+            object-fit: cover; /* Crops images while keeping the focus */
+            border: 5px solid #ddd; /* Adds a border */
+            border-radius: 10px; /* Rounded corners */
+            margin-bottom: 20px;
+        }
+        .milestone-detail h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+            color: #34495e;
+        }
+        .milestone-detail span {
+            display: block;
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+        .milestone-detail p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .milestone-detail a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1em;
+        }
+        .milestone-detail a:hover {
+            text-decoration: underline;
+        }
+        .back-link {
+            margin-top: 20px;
+            display: block;
+            font-size: 1em;
+            text-decoration: none;
+            color: #34495e;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="milestone-detail">
+        <img src="{{ milestone.image.url }}" alt="{{ milestone.title }}">
+        <h1>{{ milestone.title }}</h1>
+        <span>{{ milestone.date }}</span>
+        <p>{{ milestone.description }}</p>
+        {% if milestone.source %}
+        <p><strong>Source:</strong> 
+            <a href="{{ milestone.source }}" target="_blank">{{ milestone.source }}</a>
+        </p>
+        {% endif %}
+        <a class="back-link" href="/">← Back to Timeline</a>
+    </div>
+</body>
+</html>
